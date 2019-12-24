@@ -2,25 +2,25 @@
 import implicitEx.superString
 
 
-object implicitEx extends App {
+object implicitEx{
 
-  implicit class superString(s: String) {
+  implicit class superString(s: String) { //defining implicit class to enhance String functionality
 
-    def -(v: String): String = (s.toFloat - v.toFloat).toString
+    def -(v: String): String = (s.toFloat - v.toFloat).toString //defining subtraction method
 
-    def *(v: String): String = (s.toFloat * v.toFloat).toString
+    def *(v: String): String = (s.toFloat * v.toFloat).toString //defining multiplication
 
-    def /(v: String): String = (s.toFloat / v.toFloat).toString
+    def /(v: String): String = (s.toFloat / v.toFloat).toString //defining division
 
-    def +++(v: String): String = (s.toFloat + v.toFloat).toString
+    def +++(v: String): String = (s.toFloat + v.toFloat).toString //defining summation. Since + and ++ already defined for Strings, I have to choose +++ as method name
 
   }
 
 }
 
-object test extends App{
+object testImplicit extends App{ //testing result
 
-  def ~=(x: String, y: Double, precision: Double) = {
+  def ~=(x: String, y: Double, precision: Double) = { //defining method to compare floats
     if ((x.toFloat - y).abs < precision) true else false
   }
 
